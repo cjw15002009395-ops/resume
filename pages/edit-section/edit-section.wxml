@@ -1,0 +1,83 @@
+<!--pages/edit-section/edit-section.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="form-card">
+      <view class="form-group" wx:for="{{fields}}" wx:key="key">
+        <text class="form-label">{{item.label}}</text>
+
+        <!-- 头像选择 -->
+        <view wx:if="{{item.type === 'image'}}" class="form-avatar-row">
+          <view class="form-avatar-box" bindtap="onChooseAvatar">
+            <image wx:if="{{formData[item.key]}}" class="form-avatar" src="{{formData[item.key]}}" mode="aspectFill" />
+            <view wx:else class="form-avatar-placeholder">+</view>
+          </view>
+          <view class="form-avatar-actions">
+            <button class="avatar-action-btn" size="mini" bindtap="onChooseAvatar">
+              {{formData[item.key] ? '更换头像' : '选择头像'}}
+            </button>
+            <button wx:if="{{formData[item.key]}}" class="avatar-action-btn remove" size="mini" bindtap="onRemoveAvatar">
+              删除
+            </button>
+          </view>
+        </view>
+
+        <!-- 文本输入 -->
+        <input wx:if="{{item.type === 'text' || item.type === 'number'}}"
+          class="form-input"
+          type="{{item.type === 'number' ? 'number' : 'text'}}"
+          placeholder="{{item.placeholder}}"
+          value="{{formData[item.key]}}"
+          data-key="{{item.key}}"
+          bindinput="onFieldInput" />
+
+        <!-- 多行文本 -->
+        <textarea wx:if="{{item.type === 'textarea'}}"
+          class="form-textarea"
+          placeholder="{{item.placeholder}}"
+          value="{{formData[item.key]}}"
+          data-key="{{item.key}}"
+          bindinput="onFieldInput"
+          auto-height />
+
+        <!-- 日期选择 -->
+        <picker wx:if="{{item.type === 'date'}}"
+          mode="date"
+          value="{{formData[item.key]}}"
+          data-key="{{item.key}}"
+          bindchange="onDateChange">
+          <view class="form-picker">
+            <text class="{{formData[item.key] ? '' : 'placeholder'}}">
+              {{formData[item.key] || item.placeholder}}
+            </text>
+          </view>
+        </picker>
+
+        <!-- 学历选择 -->
+        <picker wx:if="{{item.type === 'picker'}}"
+          range="{{degreeOptions}}"
+          value="{{degreeIndex}}"
+          bindchange="onDegreeChange">
+          <view class="form-picker">
+            <text class="{{formData[item.key] ? '' : 'placeholder'}}">
+              {{formData[item.key] || '请选择学历'}}
+            </text>
+          </view>
+        </picker>
+
+        <!-- 滑块 -->
+        <view wx:if="{{item.type === 'slider'}}" class="form-slider-row">
+          <slider class="form-slider"
+            min="{{item.min || 0}}"
+            max="{{item.max || 100}}"
+            value="{{formData[item.key]}}"
+            data-key="{{item.key}}"
+            bindchange="onSliderChange"
+            activeColor="#07c160"
+            show-value />
+        </view>
+      </view>
+    </view>
+
+    <button class="save-btn" bindtap="save">保存</button>
+  </view>
+</scroll-view>

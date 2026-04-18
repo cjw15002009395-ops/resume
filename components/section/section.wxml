@@ -1,0 +1,13 @@
+<!--components/section/section.wxml-->
+<view class="section-card">
+  <view class="section-header">
+    <text class="section-title">{{title}}</text>
+    <text class="section-count" wx:if="{{count > 0}}">{{count}}项</text>
+    <view class="add-btn" wx:if="{{showAdd}}" bindtap="onAddTap">
+      <text>+ 添加</text>
+    </view>
+  </view>
+  <view class="section-body">
+    <slot></slot>
+  </view>
+</view>

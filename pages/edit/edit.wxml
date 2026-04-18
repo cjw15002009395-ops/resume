@@ -1,0 +1,115 @@
+<!--pages/edit/edit.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+
+    <!-- 选择模板 -->
+    <view class="section-card template-entry" bindtap="goToTemplates">
+      <view class="section-header">
+        <text class="section-title">选择模板</text>
+        <view class="template-hint">
+          <view class="template-color-dot" style="background: {{templateColor}};"></view>
+          <text class="template-name-hint">{{templateName}}</text>
+          <text class="edit-hint">></text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 基本信息 -->
+    <view class="section-card" bindtap="editSection" data-key="basicInfo">
+      <view class="section-header">
+        <text class="section-title">基本信息</text>
+        <text class="edit-hint">编辑 ></text>
+      </view>
+      <view class="section-body" wx:if="{{basicInfo.name}}">
+        <text class="info-name">{{basicInfo.name}}</text>
+        <view class="info-row" wx:if="{{basicInfo.phone || basicInfo.email}}">
+          <text wx:if="{{basicInfo.phone}}">{{basicInfo.phone}}</text>
+          <text wx:if="{{basicInfo.email}}">{{basicInfo.email}}</text>
+        </view>
+      </view>
+      <view class="section-body hint" wx:else>
+        <text class="hint-text">点击填写基本信息</text>
+      </view>
+    </view>
+
+    <!-- 教育经历 -->
+    <view class="section-card">
+      <view class="section-header">
+        <text class="section-title">教育经历</text>
+        <view class="add-btn" bindtap="addItem" data-key="education">+ 添加</view>
+      </view>
+      <view class="section-body" wx:if="{{education.length > 0}}">
+        <view class="list-item" wx:for="{{education}}" wx:key="id">
+          <view class="item-content" bindtap="editItem" data-key="education" data-index="{{index}}">
+            <text class="item-title">{{item.school}}</text>
+            <text class="item-sub">{{item.major}} · {{item.degree}}</text>
+          </view>
+          <view class="item-delete" catchtap="deleteItem" data-key="education" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+      <view class="section-body" wx:else>
+        <text class="hint-text">点击添加教育经历</text>
+      </view>
+    </view>
+
+    <!-- 工作经历 -->
+    <view class="section-card">
+      <view class="section-header">
+        <text class="section-title">工作经历</text>
+        <view class="add-btn" bindtap="addItem" data-key="workExperience">+ 添加</view>
+      </view>
+      <view class="section-body" wx:if="{{workExperience.length > 0}}">
+        <view class="list-item" wx:for="{{workExperience}}" wx:key="id">
+          <view class="item-content" bindtap="editItem" data-key="workExperience" data-index="{{index}}">
+            <text class="item-title">{{item.company}}</text>
+            <text class="item-sub">{{item.position}}</text>
+          </view>
+          <view class="item-delete" catchtap="deleteItem" data-key="workExperience" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+      <view class="section-body" wx:else>
+        <text class="hint-text">点击添加工作经历</text>
+      </view>
+    </view>
+
+    <!-- 专业技能 -->
+    <view class="section-card">
+      <view class="section-header">
+        <text class="section-title">专业技能</text>
+        <view class="add-btn" bindtap="addItem" data-key="skills">+ 添加</view>
+      </view>
+      <view class="section-body" wx:if="{{skills.length > 0}}">
+        <view class="list-item" wx:for="{{skills}}" wx:key="id">
+          <view class="item-content" bindtap="editItem" data-key="skills" data-index="{{index}}">
+            <text class="item-title">{{item.name}}</text>
+          </view>
+          <view class="item-delete" catchtap="deleteItem" data-key="skills" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+      <view class="section-body" wx:else>
+        <text class="hint-text">点击添加专业技能</text>
+      </view>
+    </view>
+
+    <!-- 项目经验 -->
+    <view class="section-card">
+      <view class="section-header">
+        <text class="section-title">项目经验</text>
+        <view class="add-btn" bindtap="addItem" data-key="projects">+ 添加</view>
+      </view>
+      <view class="section-body" wx:if="{{projects.length > 0}}">
+        <view class="list-item" wx:for="{{projects}}" wx:key="id">
+          <view class="item-content" bindtap="editItem" data-key="projects" data-index="{{index}}">
+            <text class="item-title">{{item.name}}</text>
+            <text class="item-sub" wx:if="{{item.role}}">{{item.role}}</text>
+          </view>
+          <view class="item-delete" catchtap="deleteItem" data-key="projects" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+      <view class="section-body" wx:else>
+        <text class="hint-text">点击添加项目经验</text>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>

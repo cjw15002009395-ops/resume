@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "template-classic": "/components/template-classic/template-classic",
+    "template-minimal": "/components/template-minimal/template-minimal",
+    "template-elegant": "/components/template-elegant/template-elegant",
+    "template-creative": "/components/template-creative/template-creative"
+  },
+  "navigationBarTitleText": "我的简历"
+}

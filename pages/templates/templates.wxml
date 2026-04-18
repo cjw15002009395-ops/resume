@@ -1,0 +1,26 @@
+<!--pages/templates/templates.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="grid">
+      <view class="template-card {{currentId === item.id ? 'active' : ''}}"
+        wx:for="{{templateList}}" wx:key="id"
+        bindtap="selectTemplate" data-id="{{item.id}}">
+        <view class="card-preview" style="background: {{item.color}}20;">
+          <view class="preview-icon" style="background: {{item.color}};"></view>
+        </view>
+        <view class="card-info">
+          <view class="card-top">
+            <text class="card-name">{{item.name}}</text>
+            <view class="card-badge" wx:if="{{currentId === item.id}}">使用中</view>
+          </view>
+          <text class="card-desc">{{item.description}}</text>
+        </view>
+        <view class="card-dot" style="background: {{item.color}};"></view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="bottom-bar">
+  <button class="preview-btn" bindtap="goPreview">预览效果</button>
+</view>

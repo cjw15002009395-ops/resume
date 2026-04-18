@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{isEmpty}}">
+      <view class="empty-icon">📋</view>
+      <text class="empty-text">还没有简历信息</text>
+      <text class="empty-hint">点击下方按钮创建你的简历</text>
+      <button class="create-btn" bindtap="goToEdit">创建简历</button>
+    </view>
+
+    <!-- 模板渲染 -->
+    <view wx:else>
+      <template-classic wx:if="{{templateId === 'classic'}}" resumeData="{{resumeData}}" />
+      <template-minimal wx:if="{{templateId === 'minimal'}}" resumeData="{{resumeData}}" />
+      <template-elegant wx:if="{{templateId === 'elegant'}}" resumeData="{{resumeData}}" />
+      <template-creative wx:if="{{templateId === 'creative'}}" resumeData="{{resumeData}}" />
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部操作栏 -->
+<view class="bottom-bar" wx:if="{{!isEmpty}}">
+  <button class="edit-btn" bindtap="goToEdit">编辑简历</button>
+</view>

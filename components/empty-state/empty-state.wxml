@@ -1,0 +1,5 @@
+<!--components/empty-state/empty-state.wxml-->
+<view class="empty">
+  <text class="empty-msg">{{message}}</text>
+  <button class="empty-btn" wx:if="{{showButton}}" bindtap="onAction">{{buttonText}}</button>
+</view>

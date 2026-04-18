@@ -1,0 +1,129 @@
+/**pages/edit-section/edit-section.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.form-group {
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.form-group:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.form-input {
+  font-size: 30rpx;
+  color: #333;
+  padding: 16rpx 0;
+}
+
+.form-textarea {
+  font-size: 30rpx;
+  color: #333;
+  width: 100%;
+  min-height: 120rpx;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+}
+
+.form-picker {
+  padding: 16rpx 0;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.form-picker .placeholder {
+  color: #ccc;
+}
+
+.form-slider-row {
+  padding: 10rpx 0;
+}
+
+.form-slider {
+  width: 100%;
+}
+
+.save-btn {
+  margin-top: 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+}
+
+/* 头像 */
+.form-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 16rpx 0;
+}
+
+.form-avatar-box {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.form-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.form-avatar-placeholder {
+  font-size: 48rpx;
+  color: #ccc;
+  line-height: 120rpx;
+  text-align: center;
+}
+
+.form-avatar-actions {
+  display: flex;
+  gap: 16rpx;
+}
+
+.avatar-action-btn {
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  background: #07c160;
+  color: #fff;
+  border-radius: 28rpx;
+}
+
+.avatar-action-btn.remove {
+  background: #ee0a24;
+}

@@ -1,0 +1,64 @@
+<!-- 简约现代模板 -->
+<view class="template-minimal">
+  <!-- 基本信息 -->
+  <view class="header">
+    <view class="header-top">
+      <image wx:if="{{resumeData.basicInfo.avatar}}" class="avatar" src="{{resumeData.basicInfo.avatar}}" mode="aspectFill" />
+      <text class="name">{{resumeData.basicInfo.name}}</text>
+    </view>
+    <view class="contact-row" wx:if="{{resumeData.basicInfo.phone || resumeData.basicInfo.email}}">
+      <text wx:if="{{resumeData.basicInfo.phone}}">{{resumeData.basicInfo.phone}}</text>
+      <text class="sep" wx:if="{{resumeData.basicInfo.phone && resumeData.basicInfo.email}}">|</text>
+      <text wx:if="{{resumeData.basicInfo.email}}">{{resumeData.basicInfo.email}}</text>
+    </view>
+    <view class="summary" wx:if="{{resumeData.basicInfo.summary}}">
+      {{resumeData.basicInfo.summary}}
+    </view>
+  </view>
+
+  <!-- 教育经历 -->
+  <view class="section" wx:if="{{resumeData.education.length > 0}}">
+    <view class="section-title">教育经历</view>
+    <view class="section-item" wx:for="{{resumeData.education}}" wx:key="id">
+      <view class="item-row">
+        <text class="item-title">{{item.school}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub">{{item.major}} · {{item.degree}}</text>
+    </view>
+  </view>
+
+  <!-- 工作经历 -->
+  <view class="section" wx:if="{{resumeData.workExperience.length > 0}}">
+    <view class="section-title">工作经历</view>
+    <view class="section-item" wx:for="{{resumeData.workExperience}}" wx:key="id">
+      <view class="item-row">
+        <text class="item-title">{{item.company}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub">{{item.position}}</text>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+
+  <!-- 专业技能 -->
+  <view class="section" wx:if="{{resumeData.skills.length > 0}}">
+    <view class="section-title">专业技能</view>
+    <view class="skill-grid">
+      <text class="skill-text" wx:for="{{resumeData.skills}}" wx:key="id">{{item.name}} {{item.level}}%</text>
+    </view>
+  </view>
+
+  <!-- 项目经验 -->
+  <view class="section" wx:if="{{resumeData.projects.length > 0}}">
+    <view class="section-title">项目经验</view>
+    <view class="section-item" wx:for="{{resumeData.projects}}" wx:key="id">
+      <view class="item-row">
+        <text class="item-title">{{item.name}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub" wx:if="{{item.role}}">{{item.role}}</text>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+</view>
