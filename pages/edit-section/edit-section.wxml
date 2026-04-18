@@ -52,14 +52,15 @@
           </view>
         </picker>
 
-        <!-- 学历选择 -->
+        <!-- 通用选择器 -->
         <picker wx:if="{{item.type === 'picker'}}"
-          range="{{degreeOptions}}"
-          value="{{degreeIndex}}"
-          bindchange="onDegreeChange">
+          range="{{item.options}}"
+          value="{{item.options.indexOf(formData[item.key])}}"
+          data-key="{{item.key}}"
+          bindchange="onPickerChange">
           <view class="form-picker">
             <text class="{{formData[item.key] ? '' : 'placeholder'}}">
-              {{formData[item.key] || '请选择学历'}}
+              {{formData[item.key] || '请选择'}}
             </text>
           </view>
         </picker>
@@ -72,7 +73,7 @@
             value="{{formData[item.key]}}"
             data-key="{{item.key}}"
             bindchange="onSliderChange"
-            activeColor="#07c160"
+            activeColor="#007AFF"
             show-value />
         </view>
       </view>

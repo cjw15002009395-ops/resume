@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(xxd -l 16 \"C:/www/resumegit/static/images/11.png\")",
+      "Bash(python3 -c ' *)",
+      "Bash(magick \"C:/www/resumegit/static/images/11.png\" -resize 50% -quality 70 \"C:/www/resumegit/static/images/11_small.png\")",
+      "Bash(node *)",
+      "Bash(npm list *)",
+      "Bash(npm install *)",
+      "Bash(rm -rf C:/www/resumegit/components/template-classic C:/www/resumegit/components/template-minimal C:/www/resumegit/components/template-elegant C:/www/resumegit/components/template-creative)",
+      "Bash(mkdir -p C:/www/resumegit/components/template-a C:/www/resumegit/components/template-b)",
+      "Bash(git *)"
     ]
   }
 }

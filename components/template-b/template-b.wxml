@@ -1,0 +1,144 @@
+<!-- 模板B：深色侧栏 -->
+<view class="tpl-b">
+  <!-- 深色头部 -->
+  <view class="header">
+    <image wx:if="{{resumeData.basicInfo.avatar}}" class="avatar" src="{{resumeData.basicInfo.avatar}}" mode="aspectFill" />
+    <view class="header-info">
+      <text class="name">{{resumeData.basicInfo.name}}</text>
+      <view class="meta" wx:if="{{resumeData.basicInfo.gender || resumeData.basicInfo.age || resumeData.basicInfo.city}}">
+        <text wx:if="{{resumeData.basicInfo.gender}}">{{resumeData.basicInfo.gender}}</text>
+        <text wx:if="{{resumeData.basicInfo.age}}">{{resumeData.basicInfo.age}}岁</text>
+        <text wx:if="{{resumeData.basicInfo.city}}">{{resumeData.basicInfo.city}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式条 -->
+  <view class="contact-bar" wx:if="{{resumeData.basicInfo.phone || resumeData.basicInfo.email || resumeData.basicInfo.education || resumeData.basicInfo.school}}">
+    <view class="contact-item" wx:if="{{resumeData.basicInfo.phone}}">
+      <text class="contact-label">电话</text>
+      <text class="contact-val">{{resumeData.basicInfo.phone}}</text>
+    </view>
+    <view class="contact-item" wx:if="{{resumeData.basicInfo.email}}">
+      <text class="contact-label">邮箱</text>
+      <text class="contact-val">{{resumeData.basicInfo.email}}</text>
+    </view>
+    <view class="contact-item" wx:if="{{resumeData.basicInfo.education}}">
+      <text class="contact-label">学历</text>
+      <text class="contact-val">{{resumeData.basicInfo.education}}</text>
+    </view>
+    <view class="contact-item" wx:if="{{resumeData.basicInfo.school}}">
+      <text class="contact-label">院校</text>
+      <text class="contact-val">{{resumeData.basicInfo.school}}</text>
+    </view>
+  </view>
+
+  <!-- 求职意向 -->
+  <view class="section" wx:if="{{resumeData.jobIntention.position || resumeData.jobIntention.location || resumeData.jobIntention.salary}}">
+    <view class="section-title">求职意向</view>
+    <view class="intent-tags">
+      <text wx:if="{{resumeData.jobIntention.position}}">{{resumeData.jobIntention.position}}</text>
+      <text wx:if="{{resumeData.jobIntention.location}}">{{resumeData.jobIntention.location}}</text>
+      <text wx:if="{{resumeData.jobIntention.salary}}">{{resumeData.jobIntention.salary}}</text>
+    </view>
+  </view>
+
+  <!-- 自我评价 -->
+  <view class="section" wx:if="{{resumeData.selfEvaluation}}">
+    <view class="section-title">自我评价</view>
+    <text class="section-text">{{resumeData.selfEvaluation}}</text>
+  </view>
+
+  <!-- 教育经历 -->
+  <view class="section" wx:if="{{resumeData.education.length > 0}}">
+    <view class="section-title">教育经历</view>
+    <view class="item" wx:for="{{resumeData.education}}" wx:key="id">
+      <view class="item-head">
+        <text class="item-name">{{item.school}}</text>
+        <text class="item-badge">{{item.degree}}</text>
+      </view>
+      <text class="item-sub">{{item.major}} | {{item.startDate}} - {{item.endDate}}</text>
+    </view>
+  </view>
+
+  <!-- 在校经历 -->
+  <view class="section" wx:if="{{resumeData.schoolExperience.length > 0}}">
+    <view class="section-title">在校经历</view>
+    <view class="item" wx:for="{{resumeData.schoolExperience}}" wx:key="id">
+      <view class="item-head">
+        <text class="item-name">{{item.title}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub" wx:if="{{item.role}}">{{item.role}}</text>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+
+  <!-- 实习经历 -->
+  <view class="section" wx:if="{{resumeData.internship.length > 0}}">
+    <view class="section-title">实习经历</view>
+    <view class="item" wx:for="{{resumeData.internship}}" wx:key="id">
+      <view class="item-head">
+        <text class="item-name">{{item.company}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub">{{item.position}}</text>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+
+  <!-- 工作经历 -->
+  <view class="section" wx:if="{{resumeData.workExperience.length > 0}}">
+    <view class="section-title">工作经历</view>
+    <view class="item" wx:for="{{resumeData.workExperience}}" wx:key="id">
+      <view class="item-head">
+        <text class="item-name">{{item.company}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub">{{item.position}}</text>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+
+  <!-- 项目经历 -->
+  <view class="section" wx:if="{{resumeData.projects.length > 0}}">
+    <view class="section-title">项目经历</view>
+    <view class="item" wx:for="{{resumeData.projects}}" wx:key="id">
+      <view class="item-head">
+        <text class="item-name">{{item.name}}</text>
+        <text class="item-date">{{item.startDate}} - {{item.endDate}}</text>
+      </view>
+      <text class="item-sub" wx:if="{{item.role}}">{{item.role}}</text>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+
+  <!-- 职业技能 -->
+  <view class="section" wx:if="{{resumeData.skills.length > 0}}">
+    <view class="section-title">职业技能</view>
+    <view class="skill-grid">
+      <view class="skill-tag" wx:for="{{resumeData.skills}}" wx:key="id">
+        <text>{{item.name}}</text>
+        <text class="skill-pct">{{item.level}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 获奖证书 -->
+  <view class="section" wx:if="{{resumeData.awards.length > 0}}">
+    <view class="section-title">获奖证书</view>
+    <view class="item" wx:for="{{resumeData.awards}}" wx:key="id">
+      <view class="item-head">
+        <text class="item-name">{{item.title}}</text>
+        <text class="item-date" wx:if="{{item.date}}">{{item.date}}</text>
+      </view>
+      <text class="item-desc" wx:if="{{item.description}}">{{item.description}}</text>
+    </view>
+  </view>
+
+  <!-- 兴趣爱好 -->
+  <view class="section" wx:if="{{resumeData.hobbies}}">
+    <view class="section-title">兴趣爱好</view>
+    <text class="section-text">{{resumeData.hobbies}}</text>
+  </view>
+</view>

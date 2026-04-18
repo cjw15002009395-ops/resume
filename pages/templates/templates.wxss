@@ -12,7 +12,7 @@ page {
 }
 
 .container {
-  padding: 20rpx 30rpx;
+  padding: 20rpx 24rpx;
 }
 
 .grid {
@@ -21,35 +21,47 @@ page {
   gap: 20rpx;
 }
 
-.template-card {
+.tpl-card {
   width: calc(50% - 10rpx);
   background: #fff;
   border-radius: 16rpx;
   overflow: hidden;
-  position: relative;
   border: 3rpx solid transparent;
 }
 
-.template-card.active {
-  border-color: #07c160;
+.tpl-card.active {
+  border-color: #007AFF;
 }
 
 .card-preview {
-  height: 280rpx;
+  height: 320rpx;
+  padding: 24rpx;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 16rpx;
 }
 
-.preview-icon {
+.preview-bar {
   width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  opacity: 0.6;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+}
+
+.preview-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  padding-top: 16rpx;
+}
+
+.p-line {
+  height: 12rpx;
+  border-radius: 6rpx;
 }
 
 .card-info {
-  padding: 20rpx;
+  padding: 20rpx 24rpx;
+  border-top: 1rpx solid #f0f0f0;
 }
 
 .card-top {
@@ -67,8 +79,8 @@ page {
 
 .card-badge {
   font-size: 20rpx;
-  color: #07c160;
-  background: #07c16015;
+  color: #007AFF;
+  background: #007AFF15;
   padding: 4rpx 12rpx;
   border-radius: 8rpx;
 }
@@ -79,17 +91,8 @@ page {
   line-height: 1.4;
 }
 
-.card-dot {
-  position: absolute;
-  top: 16rpx;
-  right: 16rpx;
-  width: 16rpx;
-  height: 16rpx;
-  border-radius: 50%;
-}
-
 .bottom-bar {
-  padding: 20rpx 30rpx;
+  padding: 20rpx 24rpx;
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
   background: #fff;
   box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
@@ -99,7 +102,7 @@ page {
   width: 100%;
   height: 88rpx;
   line-height: 88rpx;
-  background-color: #07c160;
+  background-color: #007AFF;
   color: #fff;
   border-radius: 44rpx;
   font-size: 32rpx;

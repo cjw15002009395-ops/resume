@@ -11,73 +11,115 @@ page {
   overflow-y: hidden;
 }
 
-.section-card {
-  background: #fff;
-  border-radius: 16rpx;
-  margin-bottom: 20rpx;
-  overflow: hidden;
+.container {
+  padding: 20rpx 24rpx;
+  padding-bottom: 160rpx;
 }
 
-.section-header {
+/* 头像区域 */
+.avatar-area {
   display: flex;
   align-items: center;
-  padding: 30rpx;
-  border-bottom: 1rpx solid #f0f0f0;
+  justify-content: center;
+  padding: 30rpx 0;
+  margin-bottom: 16rpx;
 }
 
-.section-title {
-  font-size: 32rpx;
+.avatar-img {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 16rpx;
+}
+
+.avatar-placeholder {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 16rpx;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx dashed #ccc;
+}
+
+.avatar-plus {
+  font-size: 48rpx;
+  color: #ccc;
+  line-height: 1;
+}
+
+.avatar-text {
+  font-size: 20rpx;
+  color: #aaa;
+  margin-top: 6rpx;
+}
+
+/* 模块 */
+.module {
+  background: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #007AFF;
+  padding: 20rpx 24rpx;
+}
+
+.module-title {
+  font-size: 28rpx;
   font-weight: bold;
-  color: #333;
-  flex: 1;
+  color: #fff;
 }
 
-.edit-hint {
-  font-size: 26rpx;
-  color: #07c160;
+.module-arrow {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.add-btn {
-  font-size: 26rpx;
-  color: #07c160;
-  padding: 8rpx 20rpx;
-  border: 1rpx solid #07c160;
-  border-radius: 24rpx;
+.module-body {
+  padding: 20rpx 24rpx;
 }
 
-.section-body {
-  padding: 20rpx 30rpx 30rpx;
-}
-
-.section-body.hint {
-  padding: 20rpx 30rpx;
+.module-body.hint {
+  padding: 20rpx 24rpx;
 }
 
 .hint-text {
   font-size: 26rpx;
-  color: #ccc;
-}
-
-.info-name {
-  font-size: 34rpx;
-  font-weight: bold;
-  color: #333;
-  display: block;
-  margin-bottom: 10rpx;
+  color: #bbb;
 }
 
 .info-row {
   display: flex;
-  gap: 20rpx;
-  font-size: 26rpx;
-  color: #666;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  font-size: 24rpx;
+  color: #555;
+  line-height: 1.8;
 }
 
+.eval-text {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 列表项 */
 .list-item {
   display: flex;
   align-items: center;
-  padding: 20rpx 0;
-  border-bottom: 1rpx solid #f0f0f0;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
 }
 
 .list-item:last-child {
@@ -89,41 +131,83 @@ page {
 }
 
 .item-title {
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #333;
   display: block;
   margin-bottom: 4rpx;
 }
 
 .item-sub {
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: #999;
 }
 
 .item-delete {
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: #ee0a24;
   padding: 8rpx 16rpx;
 }
 
-/* 模板入口 */
-.template-entry {
-  background: linear-gradient(135deg, #fff, #f8f9fa);
-}
-
-.template-hint {
-  display: flex;
-  align-items: center;
-  gap: 10rpx;
-}
-
-.template-color-dot {
-  width: 20rpx;
-  height: 20rpx;
-  border-radius: 50%;
-}
-
-.template-name-hint {
+.add-btn {
   font-size: 24rpx;
-  color: #666;
+  color: #fff;
+  padding: 4rpx 16rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.6);
+  border-radius: 20rpx;
+}
+
+/* 添加模块网格 */
+.add-section {
+  margin-top: 8rpx;
+}
+
+.add-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.add-grid-item {
+  width: calc(25% - 12rpx);
+  background: #007AFF;
+  border-radius: 12rpx;
+  padding: 24rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-icon {
+  font-size: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.add-label {
+  font-size: 20rpx;
+  color: #fff;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 16rpx 24rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  gap: 20rpx;
+}
+
+.bottom-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #007AFF;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
 }

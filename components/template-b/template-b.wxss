@@ -1,0 +1,177 @@
+.tpl-b {
+  background: #fff;
+}
+
+/* 深色头部 */
+.header {
+  background: #2C3E50;
+  padding: 50rpx 30rpx 40rpx;
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.avatar {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.header-info {
+  flex: 1;
+}
+
+.name {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.meta {
+  display: flex;
+  gap: 16rpx;
+}
+
+.meta text {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 联系方式 */
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx 30rpx;
+  background: #34495E;
+  gap: 20rpx;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.contact-label {
+  font-size: 20rpx;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-val {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 板块 */
+.section {
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #2C3E50;
+  margin-bottom: 16rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 2rpx solid #2C3E50;
+}
+
+.section-text {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.7;
+}
+
+.intent-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.intent-tags text {
+  font-size: 24rpx;
+  color: #2C3E50;
+  background: #ecf0f1;
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+/* 列表项 */
+.item {
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rpx;
+}
+
+.item-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.item-date {
+  font-size: 22rpx;
+  color: #aaa;
+}
+
+.item-badge {
+  font-size: 20rpx;
+  color: #2C3E50;
+  background: #ecf0f1;
+  padding: 2rpx 12rpx;
+  border-radius: 6rpx;
+}
+
+.item-sub {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.item-desc {
+  font-size: 24rpx;
+  color: #888;
+  line-height: 1.6;
+  margin-top: 6rpx;
+}
+
+/* 技能 */
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  background: #ecf0f1;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #2C3E50;
+}
+
+.skill-pct {
+  font-size: 20rpx;
+  color: #7f8c8d;
+}

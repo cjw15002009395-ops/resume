@@ -1,0 +1,160 @@
+.tpl-a {
+  background: #fff;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 40rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+}
+
+.header-info {
+  flex: 1;
+}
+
+.name {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #222;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 10rpx;
+}
+
+.tags text {
+  font-size: 22rpx;
+  color: #666;
+  background: #f5f5f5;
+  padding: 4rpx 14rpx;
+  border-radius: 6rpx;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  font-size: 24rpx;
+  color: #888;
+}
+
+/* 板块 */
+.section {
+  padding: 24rpx 30rpx;
+  border-bottom: 12rpx solid #f5f5f5;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #007AFF;
+  margin-bottom: 16rpx;
+  padding-left: 12rpx;
+  border-left: 6rpx solid #007AFF;
+}
+
+.section-text {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.7;
+}
+
+.intent-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  font-size: 26rpx;
+  color: #555;
+}
+
+/* 列表项 */
+.item {
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rpx;
+}
+
+.item-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.item-date {
+  font-size: 22rpx;
+  color: #aaa;
+}
+
+.item-sub {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.item-desc {
+  font-size: 24rpx;
+  color: #888;
+  line-height: 1.6;
+  margin-top: 6rpx;
+}
+
+/* 技能 */
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.skill-name {
+  width: 160rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.skill-bar {
+  flex: 1;
+  height: 12rpx;
+  background: #f0f0f0;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: #007AFF;
+  border-radius: 6rpx;
+}

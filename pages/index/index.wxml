@@ -11,10 +11,8 @@
 
     <!-- 模板渲染 -->
     <view wx:else>
-      <template-classic wx:if="{{templateId === 'classic'}}" resumeData="{{resumeData}}" />
-      <template-minimal wx:if="{{templateId === 'minimal'}}" resumeData="{{resumeData}}" />
-      <template-elegant wx:if="{{templateId === 'elegant'}}" resumeData="{{resumeData}}" />
-      <template-creative wx:if="{{templateId === 'creative'}}" resumeData="{{resumeData}}" />
+      <template-a wx:if="{{templateId === 'a'}}" resumeData="{{resumeData}}" />
+      <template-b wx:if="{{templateId === 'b'}}" resumeData="{{resumeData}}" />
     </view>
   </view>
 </scroll-view>

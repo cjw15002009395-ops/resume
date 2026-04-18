@@ -2,114 +2,104 @@
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
 
-    <!-- 选择模板 -->
-    <view class="section-card template-entry" bindtap="goToTemplates">
-      <view class="section-header">
-        <text class="section-title">选择模板</text>
-        <view class="template-hint">
-          <view class="template-color-dot" style="background: {{templateColor}};"></view>
-          <text class="template-name-hint">{{templateName}}</text>
-          <text class="edit-hint">></text>
-        </view>
+    <!-- 头像区域 -->
+    <view class="avatar-area" bindtap="onChooseAvatar">
+      <image wx:if="{{basicInfo.avatar}}" class="avatar-img" src="{{basicInfo.avatar}}" mode="aspectFill" />
+      <view wx:else class="avatar-placeholder">
+        <text class="avatar-plus">+</text>
+        <text class="avatar-text">添加头像</text>
       </view>
     </view>
 
-    <!-- 基本信息 -->
-    <view class="section-card" bindtap="editSection" data-key="basicInfo">
-      <view class="section-header">
-        <text class="section-title">基本信息</text>
-        <text class="edit-hint">编辑 ></text>
+    <!-- 基础信息模块 -->
+    <view class="module">
+      <view class="module-header" bindtap="editBasicInfo">
+        <text class="module-title">基础信息</text>
+        <text class="module-arrow">></text>
       </view>
-      <view class="section-body" wx:if="{{basicInfo.name}}">
-        <text class="info-name">{{basicInfo.name}}</text>
-        <view class="info-row" wx:if="{{basicInfo.phone || basicInfo.email}}">
+      <view class="module-body" wx:if="{{basicInfo.name}}">
+        <view class="info-row">
+          <text wx:if="{{basicInfo.name}}">{{basicInfo.name}}</text>
+          <text wx:if="{{basicInfo.gender}}">{{basicInfo.gender}}</text>
+          <text wx:if="{{basicInfo.age}}">{{basicInfo.age}}岁</text>
           <text wx:if="{{basicInfo.phone}}">{{basicInfo.phone}}</text>
           <text wx:if="{{basicInfo.email}}">{{basicInfo.email}}</text>
         </view>
+        <view class="info-row">
+          <text wx:if="{{basicInfo.city}}">{{basicInfo.city}}</text>
+          <text wx:if="{{basicInfo.education}}">{{basicInfo.education}}</text>
+          <text wx:if="{{basicInfo.school}}">{{basicInfo.school}}</text>
+          <text wx:if="{{basicInfo.major}}">{{basicInfo.major}}</text>
+        </view>
       </view>
-      <view class="section-body hint" wx:else>
-        <text class="hint-text">点击填写基本信息</text>
+      <view class="module-body hint" wx:else>
+        <text class="hint-text">点击填写基础信息</text>
       </view>
     </view>
 
-    <!-- 教育经历 -->
-    <view class="section-card">
-      <view class="section-header">
-        <text class="section-title">教育经历</text>
-        <view class="add-btn" bindtap="addItem" data-key="education">+ 添加</view>
+    <!-- 求职意向模块 -->
+    <view class="module">
+      <view class="module-header" bindtap="editJobIntention">
+        <text class="module-title">求职意向</text>
+        <text class="module-arrow">></text>
       </view>
-      <view class="section-body" wx:if="{{education.length > 0}}">
-        <view class="list-item" wx:for="{{education}}" wx:key="id">
-          <view class="item-content" bindtap="editItem" data-key="education" data-index="{{index}}">
-            <text class="item-title">{{item.school}}</text>
-            <text class="item-sub">{{item.major}} · {{item.degree}}</text>
-          </view>
-          <view class="item-delete" catchtap="deleteItem" data-key="education" data-index="{{index}}">删除</view>
+      <view class="module-body" wx:if="{{jobIntention.position || jobIntention.location || jobIntention.salary}}">
+        <view class="info-row">
+          <text wx:if="{{jobIntention.position}}">{{jobIntention.position}}</text>
+          <text wx:if="{{jobIntention.location}}">{{jobIntention.location}}</text>
+          <text wx:if="{{jobIntention.salary}}">{{jobIntention.salary}}</text>
         </view>
       </view>
-      <view class="section-body" wx:else>
-        <text class="hint-text">点击添加教育经历</text>
+      <view class="module-body hint" wx:else>
+        <text class="hint-text">列出期望职位、地点、薪资等</text>
       </view>
     </view>
 
-    <!-- 工作经历 -->
-    <view class="section-card">
-      <view class="section-header">
-        <text class="section-title">工作经历</text>
-        <view class="add-btn" bindtap="addItem" data-key="workExperience">+ 添加</view>
+    <!-- 自我评价模块 -->
+    <view class="module">
+      <view class="module-header" bindtap="editSelfEvaluation">
+        <text class="module-title">自我评价</text>
+        <text class="module-arrow">></text>
       </view>
-      <view class="section-body" wx:if="{{workExperience.length > 0}}">
-        <view class="list-item" wx:for="{{workExperience}}" wx:key="id">
-          <view class="item-content" bindtap="editItem" data-key="workExperience" data-index="{{index}}">
-            <text class="item-title">{{item.company}}</text>
-            <text class="item-sub">{{item.position}}</text>
-          </view>
-          <view class="item-delete" catchtap="deleteItem" data-key="workExperience" data-index="{{index}}">删除</view>
-        </view>
+      <view class="module-body" wx:if="{{selfEvaluation}}">
+        <text class="eval-text">{{selfEvaluation}}</text>
       </view>
-      <view class="section-body" wx:else>
-        <text class="hint-text">点击添加工作经历</text>
+      <view class="module-body hint" wx:else>
+        <text class="hint-text">总结优势，突出亮点</text>
       </view>
     </view>
 
-    <!-- 专业技能 -->
-    <view class="section-card">
-      <view class="section-header">
-        <text class="section-title">专业技能</text>
-        <view class="add-btn" bindtap="addItem" data-key="skills">+ 添加</view>
+    <!-- 已添加的模块 -->
+    <view class="module" wx:for="{{activeModules}}" wx:key="key">
+      <view class="module-header">
+        <text class="module-title">{{item.icon}} {{item.title}}</text>
+        <view class="add-btn" catchtap="addModuleItem" data-key="{{item.key}}">+ 添加</view>
       </view>
-      <view class="section-body" wx:if="{{skills.length > 0}}">
-        <view class="list-item" wx:for="{{skills}}" wx:key="id">
-          <view class="item-content" bindtap="editItem" data-key="skills" data-index="{{index}}">
-            <text class="item-title">{{item.name}}</text>
+      <view class="module-body">
+        <view class="list-item" wx:for="{{item.items}}" wx:key="id" wx:for-item="sub" wx:for-index="idx">
+          <view class="item-content" bindtap="editModuleItem" data-key="{{item.key}}" data-index="{{idx}}">
+            <text class="item-title">{{sub.school || sub.company || sub.name || sub.title}}</text>
+            <text class="item-sub" wx:if="{{sub.major || sub.position || sub.role}}">{{sub.major || sub.position || sub.role}}</text>
           </view>
-          <view class="item-delete" catchtap="deleteItem" data-key="skills" data-index="{{index}}">删除</view>
+          <view class="item-delete" catchtap="deleteModuleItem" data-key="{{item.key}}" data-index="{{idx}}">删除</view>
         </view>
-      </view>
-      <view class="section-body" wx:else>
-        <text class="hint-text">点击添加专业技能</text>
       </view>
     </view>
 
-    <!-- 项目经验 -->
-    <view class="section-card">
-      <view class="section-header">
-        <text class="section-title">项目经验</text>
-        <view class="add-btn" bindtap="addItem" data-key="projects">+ 添加</view>
-      </view>
-      <view class="section-body" wx:if="{{projects.length > 0}}">
-        <view class="list-item" wx:for="{{projects}}" wx:key="id">
-          <view class="item-content" bindtap="editItem" data-key="projects" data-index="{{index}}">
-            <text class="item-title">{{item.name}}</text>
-            <text class="item-sub" wx:if="{{item.role}}">{{item.role}}</text>
-          </view>
-          <view class="item-delete" catchtap="deleteItem" data-key="projects" data-index="{{index}}">删除</view>
+    <!-- 添加模块网格 -->
+    <view class="add-section">
+      <view class="add-grid">
+        <view class="add-grid-item" wx:for="{{moduleConfig}}" wx:key="key" bindtap="addModuleItem" data-key="{{item.key}}">
+          <view class="add-icon">{{item.icon}}</view>
+          <text class="add-label">{{item.title}}</text>
         </view>
-      </view>
-      <view class="section-body" wx:else>
-        <text class="hint-text">点击添加项目经验</text>
       </view>
     </view>
 
   </view>
 </scroll-view>
+
+<!-- 底部操作栏 -->
+<view class="bottom-bar">
+  <button class="bottom-btn" bindtap="goToTemplates">选择模板</button>
+</view>

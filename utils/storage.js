@@ -3,16 +3,34 @@ const TEMPLATE_KEY = 'resume_template_id'
 
 const DEFAULT_DATA = {
   basicInfo: {
+    avatar: '',
     name: '',
+    gender: '',
+    age: '',
+    birthday: '',
     phone: '',
     email: '',
-    summary: '',
-    avatar: ''
+    city: '',
+    education: '',
+    school: '',
+    major: '',
+    politicalStatus: '',
+    workYears: ''
   },
+  jobIntention: {
+    position: '',
+    location: '',
+    salary: ''
+  },
+  selfEvaluation: '',
   education: [],
+  schoolExperience: [],
+  internship: [],
   workExperience: [],
+  projects: [],
   skills: [],
-  projects: []
+  awards: [],
+  hobbies: ''
 }
 
 function getResumeData() {
@@ -20,11 +38,17 @@ function getResumeData() {
     const data = wx.getStorageSync(STORAGE_KEY)
     if (!data) return JSON.parse(JSON.stringify(DEFAULT_DATA))
     return {
-      basicInfo: { ...DEFAULT_DATA.basicInfo, ...data.basicInfo },
+      basicInfo: { ...DEFAULT_DATA.basicInfo, ...(data.basicInfo || {}) },
+      jobIntention: { ...DEFAULT_DATA.jobIntention, ...(data.jobIntention || {}) },
+      selfEvaluation: data.selfEvaluation || '',
       education: data.education || [],
+      schoolExperience: data.schoolExperience || [],
+      internship: data.internship || [],
       workExperience: data.workExperience || [],
+      projects: data.projects || [],
       skills: data.skills || [],
-      projects: data.projects || []
+      awards: data.awards || [],
+      hobbies: data.hobbies || ''
     }
   } catch (e) {
     return JSON.parse(JSON.stringify(DEFAULT_DATA))
@@ -37,7 +61,7 @@ function saveResumeData(data) {
 
 function getSectionData(sectionKey) {
   const data = getResumeData()
-  return data[sectionKey] || null
+  return data[sectionKey] !== undefined ? data[sectionKey] : null
 }
 
 function saveSectionData(sectionKey, value) {
@@ -48,9 +72,9 @@ function saveSectionData(sectionKey, value) {
 
 function getTemplateId() {
   try {
-    return wx.getStorageSync(TEMPLATE_KEY) || 'classic'
+    return wx.getStorageSync(TEMPLATE_KEY) || 'a'
   } catch (e) {
-    return 'classic'
+    return 'a'
   }
 }
 
